@@ -1,13 +1,11 @@
 namespace SunamoMsSqlLegacy._sunamo;
 
-
-
 internal class InstantSB
 {
     private StringBuilder _sb = new StringBuilder();
     private string _tokensDelimiter;
 
-    public InstantSB(string znak)
+    internal InstantSB(string znak)
     {
         _tokensDelimiter = znak;
     }
@@ -18,7 +16,7 @@ internal class InstantSB
         return vratit;
     }
 
-    public void AddItem(object var)
+    internal void AddItem(object var)
     {
         string s = var.ToString();
         if (s != _tokensDelimiter && s != "")
@@ -27,12 +25,12 @@ internal class InstantSB
         }
     }
 
-    public void AddRaw(object tab)
+    internal void AddRaw(object tab)
     {
         _sb.Append(tab.ToString());
     }
 
-    public void AddItems(params object[] polozky)
+    internal void AddItems(params object[] polozky)
     {
         foreach (object var in polozky)
         {
@@ -40,7 +38,7 @@ internal class InstantSB
         }
     }
 
-    public void EndLine(object o)
+    internal void EndLine(object o)
     {
         string s = o.ToString();
         if (s != _tokensDelimiter && s != "")
@@ -49,17 +47,17 @@ internal class InstantSB
         }
     }
 
-    public void AppendLine(string p)
+    internal void AppendLine(string p)
     {
         EndLine((p + Environment.NewLine));
     }
 
-    public void AppendLine()
+    internal void AppendLine()
     {
         EndLine(Environment.NewLine);
     }
 
-    public void RemoveEndDelimiter()
+    internal void RemoveEndDelimiter()
     {
         _sb.Remove(_sb.Length - _tokensDelimiter.Length, _tokensDelimiter.Length);
     }

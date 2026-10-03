@@ -5,6 +5,6 @@ namespace SunamoMsSqlLegacy._sunamo;
 /// </summary>
 internal class AllChars
 {
-    public const char lb = '(';
-    public const char comma = ',';
+    internal const char lb = '(';
+    internal const char comma = ',';
 }

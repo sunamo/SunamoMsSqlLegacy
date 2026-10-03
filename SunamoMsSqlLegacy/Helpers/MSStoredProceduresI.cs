@@ -1,4 +1,4 @@
-namespace SunamoMsSqlLegacy;
+namespace SunamoMsSqlLegacy.Helpers;
 
 /// <summary>
 /// Singleton přístup k MSStoredProceduresIBase.

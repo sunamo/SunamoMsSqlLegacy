@@ -7,3 +7,8 @@ global using System.Collections.Specialized;
 global using System.Data;
 global using System.Linq;
 global using System.Text;
+global using SunamoMsSqlLegacy.Data;
+global using SunamoMsSqlLegacy.Enums;
+global using SunamoMsSqlLegacy.Extensions;
+global using SunamoMsSqlLegacy.Helpers;
+global using SunamoMsSqlLegacy.Interfaces;

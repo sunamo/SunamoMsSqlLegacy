@@ -1,4 +1,4 @@
-namespace SunamoMsSqlLegacy;
+namespace SunamoMsSqlLegacy.Data;
 
 /// <summary>
 /// Definice sloupce tabulky v MS SQL Serveru.

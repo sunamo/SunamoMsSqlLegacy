@@ -1,4 +1,4 @@
-namespace SunamoMsSqlLegacy;
+namespace SunamoMsSqlLegacy.Data;
 
 /// <summary>
 /// Dvojice název a hodnota, používaná jako podmínka nebo parametr SQL dotazu.

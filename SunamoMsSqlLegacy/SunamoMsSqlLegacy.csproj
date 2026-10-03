@@ -3,10 +3,10 @@
     <TargetFrameworks>net10.0;net9.0;net8.0;netstandard2.0</TargetFrameworks>
     <ImplicitUsings>disable</ImplicitUsings>
     <LangVersion>latest</LangVersion>
-    <Nullable>disable</Nullable>
-    <Version>26.10.4.1</Version>
+    <Nullable>enable</Nullable>
+    <Version>26.10.4.2</Version>
     <Description>Legacy layer over Microsoft SQL Server: column definitions, SQL generator and stored procedure helpers</Description>
-    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes>Initial release of SunamoMsSqlLegacy</PackageReleaseNotes>
     <Authors>www.sunamo.cz</Authors>
     <Copyright>www.sunamo.cz</Copyright>
     <PackageProjectUrl>https://sunamo.github.io/PlatformIndependentNuGetPackages/SunamoMsSqlLegacy/</PackageProjectUrl>

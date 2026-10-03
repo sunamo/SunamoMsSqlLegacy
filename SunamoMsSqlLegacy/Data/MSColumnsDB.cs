@@ -1,4 +1,4 @@
-namespace SunamoMsSqlLegacy;
+namespace SunamoMsSqlLegacy.Data;
 
 /// <summary>
 /// Seznam sloupců tabulky s generováním příkazu CREATE TABLE.

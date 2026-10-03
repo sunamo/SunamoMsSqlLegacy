@@ -1,6 +1,4 @@
-namespace SunamoMsSqlLegacy;
-
-
+namespace SunamoMsSqlLegacy.Helpers;
 
 /// <summary>
 /// Generátor SQL příkazů pro MS SQL Server.

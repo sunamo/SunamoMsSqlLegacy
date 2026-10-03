@@ -1,6 +1,4 @@
-namespace SunamoMsSqlLegacy;
-
-
+namespace SunamoMsSqlLegacy.Data;
 
 /// <summary>
 /// Společný základ definice sloupce databázové tabulky.

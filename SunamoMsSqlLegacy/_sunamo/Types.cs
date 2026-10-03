@@ -5,6 +5,6 @@ namespace SunamoMsSqlLegacy._sunamo;
 /// </summary>
 internal class Types
 {
-    public static readonly Type tString = typeof(string);
-    public static readonly Type tChar = typeof(char);
+    internal static readonly Type tString = typeof(string);
+    internal static readonly Type tChar = typeof(char);
 }

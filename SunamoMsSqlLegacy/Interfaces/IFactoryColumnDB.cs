@@ -1,4 +1,4 @@
-namespace SunamoMsSqlLegacy;
+namespace SunamoMsSqlLegacy.Interfaces;
 
 /// <summary>
 /// Továrna na definice sloupců.

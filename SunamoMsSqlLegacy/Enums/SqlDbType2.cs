@@ -1,4 +1,4 @@
-namespace SunamoMsSqlLegacy;
+namespace SunamoMsSqlLegacy.Enums;
 
 /// <summary>
 /// Podporované typy sloupců MS SQL Serveru.

@@ -1,4 +1,4 @@
-namespace SunamoMsSqlLegacy;
+namespace SunamoMsSqlLegacy.Extensions;
 
 /// <summary>
 /// Rozšíření pro <see cref="NameValueCollection"/>.

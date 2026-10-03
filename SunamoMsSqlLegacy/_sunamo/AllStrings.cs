@@ -5,8 +5,8 @@ namespace SunamoMsSqlLegacy._sunamo;
 /// </summary>
 internal class AllStrings
 {
-    public const string lb = "(";
-    public const string rb = ")";
-    public const string comma = ",";
-    public const string space = " ";
+    internal const string lb = "(";
+    internal const string rb = ")";
+    internal const string comma = ",";
+    internal const string space = " ";
 }

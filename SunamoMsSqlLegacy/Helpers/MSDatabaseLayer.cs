@@ -1,6 +1,4 @@
-namespace SunamoMsSqlLegacy;
-
-
+namespace SunamoMsSqlLegacy.Helpers;
 
 /// <summary>
 /// Statické připojení a pomocné metody pro MS SQL Server.

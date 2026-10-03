@@ -1,4 +1,4 @@
-namespace SunamoMsSqlLegacy;
+namespace SunamoMsSqlLegacy.Helpers;
 
 /// <summary>
 /// Továrna na sloupce MS SQL Serveru.

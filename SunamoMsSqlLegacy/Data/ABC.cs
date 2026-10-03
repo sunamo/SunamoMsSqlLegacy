@@ -1,6 +1,4 @@
-namespace SunamoMsSqlLegacy;
-
-
+namespace SunamoMsSqlLegacy.Data;
 
 /// <summary>
 /// Seznam dvojic AB (název a hodnota).

@@ -1,6 +1,4 @@
-namespace SunamoMsSqlLegacy;
-
-
+namespace SunamoMsSqlLegacy.Helpers;
 
 /// <summary>
 /// Základní operace nad MS SQL Serverem (select, insert, execute).
