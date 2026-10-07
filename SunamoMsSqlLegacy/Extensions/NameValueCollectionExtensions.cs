@@ -12,10 +12,10 @@ public static class NameValueCollectionExtensions
     /// <param name="key">Klíč hodnoty.</param>
     public static string GetUrlDecode(this NameValueCollection nvc, string key)
     {
-        var v = nvc.Get(key);
-        if (v != null)
+        var value = nvc.Get(key);
+        if (value != null)
         {
-            switch (v)
+            switch (value)
             {
                 case "\\r\\n":
                 case "\\n":
@@ -25,6 +25,6 @@ public static class NameValueCollectionExtensions
                     return "\t";
             }
         }
-        return v;
+        return value;
     }
 }

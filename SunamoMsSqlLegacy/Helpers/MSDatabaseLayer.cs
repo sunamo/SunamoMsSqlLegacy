@@ -14,23 +14,23 @@ public class MSDatabaseLayer : IDatabaseLayer<SqlDbType2>
     /// </summary>
     public static string GetValues(params object[] sloupce)
     {
-        int to = sloupce.Length;
-        return GetValuesDirect(to);
+        int columnCount = sloupce.Length;
+        return GetValuesDirect(columnCount);
     }
 
     /// <summary>
     /// Vrátí seznam parametrů (@p0, @p1...) pro daný počet.
     /// </summary>
-    public static string GetValuesDirect(int to)
+    public static string GetValuesDirect(int count)
     {
-        StringBuilder sb = new StringBuilder();
-        sb.Append(AllStrings.lb);
-        for (int i = 0; i < to; i++)
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.Append(AllStrings.lb);
+        for (int index = 0; index < count; index++)
         {
-            sb.Append("@p" + (i).ToString() + AllStrings.comma);
+            stringBuilder.Append("@p" + (index).ToString() + AllStrings.comma);
         }
 
-        return sb.ToString().TrimEnd(AllChars.comma) + AllStrings.rb;
+        return stringBuilder.ToString().TrimEnd(AllChars.comma) + AllStrings.rb;
     }
 
     /// <summary>
@@ -52,9 +52,9 @@ public class MSDatabaseLayer : IDatabaseLayer<SqlDbType2>
     /// <summary>
     /// Uloží connection string.
     /// </summary>
-    public static bool LoadNewConnection(string cs)
+    public static bool LoadNewConnection(string connectionString)
     {
-        MSDatabaseLayer.cs = cs;
+        MSDatabaseLayer.cs = connectionString;
         return true;
     }
     /// <summary>
