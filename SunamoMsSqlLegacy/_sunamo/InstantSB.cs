@@ -18,10 +18,10 @@ internal class InstantSB
 
     internal void AddItem(object var)
     {
-        string s = var.ToString();
-        if (s != _tokensDelimiter && s != "")
+        string text = var.ToString();
+        if (text != _tokensDelimiter && text != "")
         {
-            _sb.Append(s + _tokensDelimiter);
+            _sb.Append(text + _tokensDelimiter);
         }
     }
 
@@ -38,18 +38,18 @@ internal class InstantSB
         }
     }
 
-    internal void EndLine(object o)
+    internal void EndLine(object value)
     {
-        string s = o.ToString();
-        if (s != _tokensDelimiter && s != "")
+        string text = value.ToString();
+        if (text != _tokensDelimiter && text != "")
         {
-            _sb.Append(s);
+            _sb.Append(text);
         }
     }
 
-    internal void AppendLine(string p)
+    internal void AppendLine(string text)
     {
-        EndLine((p + Environment.NewLine));
+        EndLine((text + Environment.NewLine));
     }
 
     internal void AppendLine()

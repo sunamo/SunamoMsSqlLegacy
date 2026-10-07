@@ -17,9 +17,9 @@ public class ABC : List<AB>
     /// </summary>
     public ABC(params object[] setsNameValue)
     {
-        for (int i = 0; i < setsNameValue.Length; i++)
+        for (int index = 0; index < setsNameValue.Length; index++)
         {
-            this.Add(AB.Get(setsNameValue[i].ToString(), setsNameValue[++i]));
+            this.Add(AB.Get(setsNameValue[index].ToString(), setsNameValue[++index]));
         }
     }
 
@@ -44,12 +44,12 @@ public class ABC : List<AB>
     /// </summary>
     public List<object> OnlyBsList()
     {
-        List<object> o = new List<object>(this.Count);
-        for (int i = 0; i < this.Count; i++)
+        List<object> values = new List<object>(this.Count);
+        for (int index = 0; index < this.Count; index++)
         {
-            o.Add(this[i].B);
+            values.Add(this[index].B);
         }
-        return o;
+        return values;
     }
 
     /// <summary>
@@ -57,14 +57,14 @@ public class ABC : List<AB>
     /// </summary>
     public List<string> OnlyAs()
     {
-        List<string> o = new List<string>(this.Count);
+        List<string> names = new List<string>(this.Count);
 
-        for (int i = 0; i < this.Count; i++)
+        for (int index = 0; index < this.Count; index++)
         {
             //o[i] = this[i].A;
-            o.Add(this[i].A);
+            names.Add(this[index].A);
         }
-        return o;
+        return names;
     }
 
     /// <summary>
@@ -72,6 +72,6 @@ public class ABC : List<AB>
     /// </summary>
     public static IEnumerable OnlyBs(List<AB> arr)
     {
-        return arr.Select(d => d.B);
+        return arr.Select(pair => pair.B);
     }
 }

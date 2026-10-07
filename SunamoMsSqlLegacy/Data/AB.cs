@@ -11,25 +11,25 @@ public class AB
     /// <summary>
     /// Vytvoří dvojici z názvu a hodnoty.
     /// </summary>
-    public AB(string a, object b)
+    public AB(string name, object value)
     {
-        A = a;
-        B = b;
+        A = name;
+        B = value;
     }
 
     /// <summary>
     /// Vytvoří dvojici, kde název je plný název typu.
     /// </summary>
-    public static AB Get(Type a, object b)
+    public static AB Get(Type type, object value)
     {
-        return new AB(a.FullName, b);
+        return new AB(type.FullName, value);
     }
 
     /// <summary>
     /// Vytvoří dvojici z názvu a hodnoty.
     /// </summary>
-    public static AB Get(string a, object b)
+    public static AB Get(string name, object value)
     {
-        return new AB(a, b);
+        return new AB(name, value);
     }
 }

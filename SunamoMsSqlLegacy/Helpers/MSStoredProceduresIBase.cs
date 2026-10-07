@@ -61,11 +61,11 @@ public class MSStoredProceduresIBase
     {
         string values = MSDatabaseLayer.GetValues(columns);
         SqlCommand comm = new SqlCommand(string.Format("INSERT INTO {0} VALUES {1}", table, values));
-        int to = columns.Length;
-        for (int i = 0; i < to; i++)
+        int columnCount = columns.Length;
+        for (int index = 0; index < columnCount; index++)
         {
-            object o = columns[i];
-            AddCommandParameter(comm, i, o);
+            object column = columns[index];
+            AddCommandParameter(comm, index, column);
         }
         ExecuteNonQuery(comm);
     }
@@ -84,9 +84,9 @@ public class MSStoredProceduresIBase
     public object ExecuteScalar(string commText, params object[] para)
     {
         SqlCommand comm = new SqlCommand(commText);
-        for (int i = 0; i < para.Length; i++)
+        for (int index = 0; index < para.Length; index++)
         {
-            AddCommandParameter(comm, i, para[i]);
+            AddCommandParameter(comm, index, para[index]);
         }
         var result = ExecuteScalar(comm);
         return result;
@@ -97,8 +97,8 @@ public class MSStoredProceduresIBase
     /// </summary>
     private short ExecuteScalarShort(bool signed, SqlCommand comm)
     {
-        var o = ExecuteScalar(comm);
-        if (o == null)
+        var result = ExecuteScalar(comm);
+        if (result == null)
         {
             if (signed)
             {
@@ -109,7 +109,7 @@ public class MSStoredProceduresIBase
                 return -1;
             }
         }
-        return Convert.ToInt16(o);
+        return Convert.ToInt16(result);
     }
 
     /// <summary>
@@ -136,18 +136,18 @@ public class MSStoredProceduresIBase
         {
             return short.MinValue;
         }
-        var rs = ExecuteScalarShort(true, new SqlCommand("SELECT MAX(" + column + ") FROM " + table));
-        rs++;
-        return rs;
+        var result = ExecuteScalarShort(true, new SqlCommand("SELECT MAX(" + column + ") FROM " + table));
+        result++;
+        return result;
     }
 
     /// <summary>
     /// Zjistí, zda tabulka existuje (na daném připojení).
     /// </summary>
-    public bool SelectExistsTable(string p, SqlConnection conn)
+    public bool SelectExistsTable(string tableName, SqlConnection conn)
     {
-        DataTable dt = SelectDataTable(conn, string.Format("SELECT * FROM sysobjects WHERE id = object_id(N'{0}') AND OBJECTPROPERTY(id, N'IsUserTable') = 1", p));
-        return dt.Rows.Count != 0;
+        DataTable dataTable = SelectDataTable(conn, string.Format("SELECT * FROM sysobjects WHERE id = object_id(N'{0}') AND OBJECTPROPERTY(id, N'IsUserTable') = 1", tableName));
+        return dataTable.Rows.Count != 0;
     }
 
     /// <summary>
@@ -180,13 +180,13 @@ public class MSStoredProceduresIBase
     /// <summary>
     /// Zjistí, zda tabulka existuje.
     /// </summary>
-    public bool SelectExistsTable(string p)
+    public bool SelectExistsTable(string tableName)
     {
         using (var conn = new SqlConnection(Cs))
         {
-            DataTable dt = SelectDataTable(conn, string.Format("SELECT * FROM sysobjects WHERE id = object_id(N'{0}') AND OBJECTPROPERTY(id, N'IsUserTable') = 1", p));
+            DataTable dataTable = SelectDataTable(conn, string.Format("SELECT * FROM sysobjects WHERE id = object_id(N'{0}') AND OBJECTPROPERTY(id, N'IsUserTable') = 1", tableName));
             conn.Close();
-            return dt.Rows.Count != 0;
+            return dataTable.Rows.Count != 0;
         }
     }
 
@@ -196,9 +196,9 @@ public class MSStoredProceduresIBase
     private DataTable SelectDataTable(SqlConnection conn, string sql, params object[] _params)
     {
         SqlCommand comm = new SqlCommand(sql);
-        for (int i = 0; i < _params.Length; i++)
+        for (int index = 0; index < _params.Length; index++)
         {
-            AddCommandParameter(comm, i, _params[i]);
+            AddCommandParameter(comm, index, _params[index]);
         }
         return SelectDataTable(conn, comm);
     }
@@ -206,10 +206,10 @@ public class MSStoredProceduresIBase
     /// <summary>
     /// Vrátí vybrané sloupce s podmínkami.
     /// </summary>
-    public DataTable SelectDataTableSelective(string tabulka, string nazvySloupcu, params AB[] ab)
+    public DataTable SelectDataTableSelective(string tabulka, string nazvySloupcu, params AB[] conditions)
     {
-        SqlCommand comm = new SqlCommand(string.Format("SELECT {0} FROM {1}", nazvySloupcu, tabulka) + GeneratorMsSql.CombinedWhere(new ABC( ab)));
-        AddCommandParameterFromAbc(comm, ab);
+        SqlCommand comm = new SqlCommand(string.Format("SELECT {0} FROM {1}", nazvySloupcu, tabulka) + GeneratorMsSql.CombinedWhere(new ABC( conditions)));
+        AddCommandParameterFromAbc(comm, conditions);
         return SelectDataTable(comm);
     }
 
@@ -221,12 +221,12 @@ public class MSStoredProceduresIBase
         using (var conn = new SqlConnection(Cs))
         {
             conn.Open();
-            DataTable dt = new DataTable();
+            DataTable dataTable = new DataTable();
             comm.Connection = conn;
             SqlDataAdapter adapter = new SqlDataAdapter(comm);
-            adapter.Fill(dt);
+            adapter.Fill(dataTable);
             conn.Close();
-            return dt;
+            return dataTable;
         }
     }
 
@@ -235,56 +235,56 @@ public class MSStoredProceduresIBase
     /// </summary>
     private static void AddCommandParameterFromAbc(SqlCommand comm, params AB[] where)
     {
-        for (int i = 0; i < where.Length; i++)
+        for (int index = 0; index < where.Length; index++)
         {
-            AddCommandParameter(comm, i, where[i].B);
+            AddCommandParameter(comm, index, where[index].B);
         }
     }
 
     /// <summary>
     /// Přidá jeden parametr (null jako DBNull) a vrátí další index.
     /// </summary>
-    public static int AddCommandParameter(SqlCommand comm, int i, object o)
+    public static int AddCommandParameter(SqlCommand comm, int index, object value)
     {
-        if (o == null || o.GetType() == DBNull.Value.GetType())
+        if (value == null || value.GetType() == DBNull.Value.GetType())
         {
-            SqlParameter p = new SqlParameter();
-            p.ParameterName = "@p" + i.ToString();
-            p.Value = DBNull.Value;
-            comm.Parameters.Add(p);
+            SqlParameter parameter = new SqlParameter();
+            parameter.ParameterName = "@p" + index.ToString();
+            parameter.Value = DBNull.Value;
+            comm.Parameters.Add(parameter);
         }
-        else if (o.GetType() == typeof(byte[]))
+        else if (value.GetType() == typeof(byte[]))
         {
-            SqlParameter param = comm.Parameters.Add("@p" + i.ToString(), SqlDbType.Binary);
-            param.Value = o;
+            SqlParameter param = comm.Parameters.Add("@p" + index.ToString(), SqlDbType.Binary);
+            param.Value = value;
         }
-        else if (o.GetType() == Types.tString || o.GetType() == Types.tChar)
+        else if (value.GetType() == Types.tString || value.GetType() == Types.tChar)
         {
-            string _ = o.ToString();
-            comm.Parameters.AddWithValue("@p" + i.ToString(), _);
+            string _ = value.ToString();
+            comm.Parameters.AddWithValue("@p" + index.ToString(), _);
         }
         else
         {
-            comm.Parameters.AddWithValue("@p" + i.ToString(), o);
+            comm.Parameters.AddWithValue("@p" + index.ToString(), value);
         }
-        ++i;
-        return i;
+        ++index;
+        return index;
     }
 
     /// <summary>
     /// Přidá parametry z podmínek od daného indexu.
     /// </summary>
-    private static int AddCommandParameterFromAbc(SqlCommand comm, ABC where, int i)
+    private static int AddCommandParameterFromAbc(SqlCommand comm, ABC where, int index)
     {
         if (where != null)
         {
-            for (var i2 = 0; i2 < where.Count; i2++)
+            for (var innerIndex = 0; innerIndex < where.Count; innerIndex++)
             {
-                AddCommandParameter(comm, i, where[i2].B);
-                i++;
+                AddCommandParameter(comm, index, where[innerIndex].B);
+                index++;
             }
         }
-        return i;
+        return index;
     }
 
     /// <summary>
@@ -292,10 +292,10 @@ public class MSStoredProceduresIBase
     /// </summary>
     public DataTable SelectDataTable(SqlConnection conn, SqlCommand comm)
     {
-        DataTable dt = new DataTable();
+        DataTable dataTable = new DataTable();
         comm.Connection = conn;
         SqlDataAdapter adapter = new SqlDataAdapter(comm);
-        adapter.Fill(dt);
-        return dt;
+        adapter.Fill(dataTable);
+        return dataTable;
     }
 }
