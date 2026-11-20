@@ -6,7 +6,7 @@ namespace SunamoMsSqlLegacy.Data;
 public class MSSloupecDB : ColumnsDBBase<MSSloupecDB, SqlDbType2>
 {
     /// <summary>
-    /// Vytvoří sloupec a nastaví databázovou vrstvu.
+    /// Creates a column and sets up the database layer.
     /// </summary>
     public MSSloupecDB() : base()
     {
@@ -14,7 +14,7 @@ public class MSSloupecDB : ColumnsDBBase<MSSloupecDB, SqlDbType2>
     }
 
     /// <summary>
-    /// Nastaví výchozí databázovou vrstvu.
+    /// Sets the default database layer.
     /// </summary>
     static MSSloupecDB()
     {

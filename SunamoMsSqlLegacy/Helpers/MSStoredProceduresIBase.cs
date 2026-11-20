@@ -1,14 +1,14 @@
 namespace SunamoMsSqlLegacy.Helpers;
 
 /// <summary>
-/// Základní operace nad MS SQL Serverem (select, insert, execute).
+/// Basic operations over MS SQL Server (select, insert, execute).
 /// </summary>
 public class MSStoredProceduresIBase
 {
     public string _cs = null;
 
     /// <summary>
-    /// Connection string instance, jinak výchozí z MSDatabaseLayer.
+    /// Connection string of the instance, otherwise the default from MSDatabaseLayer.
     /// </summary>
     private string Cs
     {
@@ -23,7 +23,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Vrátí posledních N řádků seřazených sestupně podle sloupce.
+    /// Returns the last N rows sorted descending by a column.
     /// </summary>
     public DataTable SelectDataTableLastRows(string tableName, int limit, string columns, string columnOrder, params AB[] where)
     {
@@ -34,7 +34,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Přidá do příkazu parametry z podmínek a vrátí další index.
+    /// Adds parameters from the conditions to the command and returns the next index.
     /// </summary>
     public static int AddCommandParameteres(SqlCommand comm, int startIndex, ABC aWhere)
     {
@@ -47,7 +47,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Vrátí posledních N řádků se všemi sloupci.
+    /// Returns the last N rows with all columns.
     /// </summary>
     public DataTable SelectDataTableLastRows(string tableName, int limit, string colunmID, params AB[] abc)
     {
@@ -55,7 +55,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Vloží řádek s hodnotami v daném pořadí.
+    /// Inserts a row with values in the given order.
     /// </summary>
     public void Insert4(string table, params object[] columns)
     {
@@ -71,7 +71,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Vrátí počet řádků tabulky.
+    /// Returns the number of table rows.
     /// </summary>
     public long SelectCount(string table)
     {
@@ -79,7 +79,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Provede skalární dotaz s parametry.
+    /// Executes a scalar query with parameters.
     /// </summary>
     public object ExecuteScalar(string commText, params object[] para)
     {
@@ -93,7 +93,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Provede skalární dotaz a vrátí short; u null vrátí krajní hodnotu.
+    /// Executes a scalar query and returns a short; for null returns the boundary value.
     /// </summary>
     private short ExecuteScalarShort(bool signed, SqlCommand comm)
     {
@@ -113,7 +113,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Provede skalární příkaz na novém připojení.
+    /// Executes a scalar command on a new connection.
     /// </summary>
     public object ExecuteScalar(SqlCommand comm)
     {
@@ -128,7 +128,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Vrátí maximum sloupce plus 1, u prázdné tabulky short.MinValue.
+    /// Returns the column maximum plus 1, for an empty table short.MinValue.
     /// </summary>
     public short SelectMaxShortMinValue(string table, string column)
     {
@@ -142,7 +142,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Zjistí, zda tabulka existuje (na daném připojení).
+    /// Determines whether the table exists (on the given connection).
     /// </summary>
     public bool SelectExistsTable(string tableName, SqlConnection conn)
     {
@@ -151,7 +151,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Smaže tabulku, pokud existuje.
+    /// Drops the table if it exists.
     /// </summary>
     public int DropTableIfExists(string table)
     {
@@ -163,7 +163,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Provede příkaz bez návratové hodnoty a vrátí počet změněných řádků.
+    /// Executes a command without a return value and returns the number of changed rows.
     /// </summary>
     public int ExecuteNonQuery(SqlCommand comm)
     {
@@ -178,7 +178,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Zjistí, zda tabulka existuje.
+    /// Determines whether the table exists.
     /// </summary>
     public bool SelectExistsTable(string tableName)
     {
@@ -191,7 +191,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Provede dotaz s parametry na daném připojení.
+    /// Executes a query with parameters on the given connection.
     /// </summary>
     private DataTable SelectDataTable(SqlConnection conn, string sql, params object[] _params)
     {
@@ -204,7 +204,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Vrátí vybrané sloupce s podmínkami.
+    /// Returns the selected columns with conditions.
     /// </summary>
     public DataTable SelectDataTableSelective(string tabulka, string nazvySloupcu, params AB[] conditions)
     {
@@ -214,7 +214,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Provede příkaz na novém připojení a vrátí výsledek.
+    /// Executes a command on a new connection and returns the result.
     /// </summary>
     public DataTable SelectDataTable(SqlCommand comm)
     {
@@ -231,7 +231,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Přidá parametry z pole dvojic.
+    /// Adds parameters from an array of pairs.
     /// </summary>
     private static void AddCommandParameterFromAbc(SqlCommand comm, params AB[] where)
     {
@@ -242,7 +242,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Přidá jeden parametr (null jako DBNull) a vrátí další index.
+    /// Adds one parameter (null as DBNull) and returns the next index.
     /// </summary>
     public static int AddCommandParameter(SqlCommand comm, int index, object value)
     {
@@ -272,7 +272,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Přidá parametry z podmínek od daného indexu.
+    /// Adds parameters from the conditions starting at the given index.
     /// </summary>
     private static int AddCommandParameterFromAbc(SqlCommand comm, ABC where, int index)
     {
@@ -288,7 +288,7 @@ public class MSStoredProceduresIBase
     }
 
     /// <summary>
-    /// Provede příkaz na daném připojení a vrátí výsledek.
+    /// Executes a command on the given connection and returns the result.
     /// </summary>
     public DataTable SelectDataTable(SqlConnection conn, SqlCommand comm)
     {

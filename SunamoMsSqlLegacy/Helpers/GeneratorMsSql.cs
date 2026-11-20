@@ -1,12 +1,12 @@
 namespace SunamoMsSqlLegacy.Helpers;
 
 /// <summary>
-/// Generátor SQL příkazů pro MS SQL Server.
+/// SQL command generator for MS SQL Server.
 /// </summary>
 public class GeneratorMsSql
 {
     /// <summary>
-    /// Vrátí definici jednoho sloupce pro CREATE TABLE.
+    /// Returns the definition of one column for CREATE TABLE.
     /// </summary>
     private static string Column(MSSloupecDB var, string inTable, bool dynamicTables)
     {
@@ -27,7 +27,7 @@ public class GeneratorMsSql
     }
 
     /// <summary>
-    /// Sestaví klauzuli WHERE spojenou přes AND a posune index parametrů.
+    /// Builds a WHERE clause joined with AND and shifts the parameter index.
     /// </summary>
     public static string CombinedWhere(ABC where, ref int addFrom)
     {
@@ -57,7 +57,7 @@ public class GeneratorMsSql
     }
 
     /// <summary>
-    /// Vrátí SQL CREATE TABLE, nebo null pokud tabulka už existuje.
+    /// Returns SQL CREATE TABLE, or null if the table already exists.
     /// </summary>
     public static string CreateTable(string table, object columns2, bool dynamicTables, SqlConnection conn)
     {
@@ -80,7 +80,7 @@ public class GeneratorMsSql
     }
 
     /// <summary>
-    /// Sestaví klauzuli WHERE od parametru @p0.
+    /// Builds a WHERE clause starting from parameter @p0.
     /// </summary>
     public static string CombinedWhere(ABC where)
     {

@@ -1,7 +1,7 @@
 namespace SunamoMsSqlLegacy.Enums;
 
 /// <summary>
-/// Podporované typy sloupců MS SQL Serveru.
+/// Supported MS SQL Server column types.
 /// </summary>
 public enum SqlDbType2
 {

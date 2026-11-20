@@ -1,19 +1,19 @@
 namespace SunamoMsSqlLegacy.Data;
 
 /// <summary>
-/// Seznam dvojic AB (název a hodnota).
+/// List of AB pairs (name and value).
 /// </summary>
 public class ABC : List<AB>
 {
     /// <summary>
-    /// Vytvoří prázdný seznam.
+    /// Creates an empty list.
     /// </summary>
     public ABC()
     {
     }
 
     /// <summary>
-    /// Vytvoří seznam z posloupnosti název, hodnota, název, hodnota.
+    /// Creates a list from the sequence name, value, name, value.
     /// </summary>
     public ABC(params object[] setsNameValue)
     {
@@ -24,7 +24,7 @@ public class ABC : List<AB>
     }
 
     /// <summary>
-    /// Vytvoří seznam z hotových dvojic.
+    /// Creates a list from ready-made pairs.
     /// </summary>
     public ABC(params AB[] abc)
     {
@@ -32,7 +32,7 @@ public class ABC : List<AB>
     }
 
     /// <summary>
-    /// Vrátí jen hodnoty jako pole.
+    /// Returns only the values as an array.
     /// </summary>
     public object[] OnlyBs()
     {
@@ -40,7 +40,7 @@ public class ABC : List<AB>
     }
 
     /// <summary>
-    /// Vrátí jen hodnoty jako seznam.
+    /// Returns only the values as a list.
     /// </summary>
     public List<object> OnlyBsList()
     {
@@ -53,7 +53,7 @@ public class ABC : List<AB>
     }
 
     /// <summary>
-    /// Vrátí jen názvy jako seznam.
+    /// Returns only the names as a list.
     /// </summary>
     public List<string> OnlyAs()
     {
@@ -67,7 +67,7 @@ public class ABC : List<AB>
     }
 
     /// <summary>
-    /// Vrátí hodnoty ze seznamu dvojic.
+    /// Returns the values from a list of pairs.
     /// </summary>
     public static IEnumerable OnlyBs(List<AB> arr)
     {

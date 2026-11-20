@@ -1,7 +1,7 @@
 namespace SunamoMsSqlLegacy;
 
 /// <summary>
-/// Databázová vrstva (značkovací rozhraní).
+/// Database layer (marker interface).
 /// </summary>
 public interface IDatabaseLayer<SqlDbType>
 {

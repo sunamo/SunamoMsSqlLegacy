@@ -1,12 +1,12 @@
 namespace SunamoMsSqlLegacy.Data;
 
 /// <summary>
-/// Společný základ definice sloupce databázové tabulky.
+/// Common base of a database table column definition.
 /// </summary>
 public class ColumnsDBBase<MSSloupecDB, SqlDbType2>
 {
     /// <summary>
-    /// Nastaví továrnu sloupců pro MS SQL.
+    /// Sets the column factory for MS SQL.
     /// </summary>
     static ColumnsDBBase()
     {
@@ -22,7 +22,7 @@ public class ColumnsDBBase<MSSloupecDB, SqlDbType2>
     public bool primaryKey = false;
 
     /// <summary>
-    /// Typ sloupce převedený na SqlDbType.
+    /// Column type converted to SqlDbType.
     /// </summary>
     public SqlDbType Type2
     {
@@ -47,7 +47,7 @@ public class ColumnsDBBase<MSSloupecDB, SqlDbType2>
         }
     }
     /// <summary>
-    /// Délka typu včetně závorek, např. (50).
+    /// Length of the type including parentheses, e.g. (50).
     /// </summary>
     public string Length
     {
@@ -58,7 +58,7 @@ public class ColumnsDBBase<MSSloupecDB, SqlDbType2>
     }
 
     /// <summary>
-    /// Název sloupce; případná délka v závorce se oddělí do Length.
+    /// Column name; an optional length in parentheses is separated into Length.
     /// </summary>
     public string Name
     {
@@ -82,7 +82,7 @@ public class ColumnsDBBase<MSSloupecDB, SqlDbType2>
     }
 
     /// <summary>
-    /// Zda je sloupec primární klíč.
+    /// Whether the column is a primary key.
     /// </summary>
     public bool PrimaryKey
     {
@@ -92,14 +92,14 @@ public class ColumnsDBBase<MSSloupecDB, SqlDbType2>
         }
     }
     /// <summary>
-    /// Vytvoří sloupec s určením primárního klíče.
+    /// Creates a column with the primary key specified.
     /// </summary>
     public static MSSloupecDB CI(SqlDbType2 typ, string nazev, bool primaryKey)
     {
         return factoryColumnDB.CreateInstance(typ, nazev, Signed.Other, false, false, null, null, primaryKey);
     }
     /// <summary>
-    /// Vytvoří sloupec bez primárního klíče.
+    /// Creates a column without a primary key.
     /// </summary>
     public static MSSloupecDB CI(SqlDbType2 typ, string nazev)
     {

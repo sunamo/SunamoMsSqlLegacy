@@ -1,15 +1,15 @@
 namespace SunamoMsSqlLegacy.Extensions;
 
 /// <summary>
-/// Rozšíření pro <see cref="NameValueCollection"/>.
+/// Extensions for <see cref="NameValueCollection"/>.
 /// </summary>
 public static class NameValueCollectionExtensions
 {
     /// <summary>
-    /// Vrátí hodnotu klíče, přičemž zapsané whitespace sekvence (\r\n, \n, \r, \t) převede na skutečné znaky.
+    /// Returns the value of the key, converting written whitespace sequences (\r\n, \n, \r, \t) to real characters.
     /// </summary>
-    /// <param name="nvc">Kolekce, ze které se hodnota čte.</param>
-    /// <param name="key">Klíč hodnoty.</param>
+    /// <param name="nvc">Collection from which the value is read.</param>
+    /// <param name="key">Key of the value.</param>
     public static string GetUrlDecode(this NameValueCollection nvc, string key)
     {
         var value = nvc.Get(key);

@@ -1,7 +1,7 @@
 namespace SunamoMsSqlLegacy._sunamo;
 
 /// <summary>
-/// Řetězcové konstanty používané vrstvou nad SQL Serverem.
+/// String constants used by the layer above SQL Server.
 /// </summary>
 internal class AllStrings
 {

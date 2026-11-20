@@ -1,7 +1,7 @@
 namespace SunamoMsSqlLegacy.Data;
 
 /// <summary>
-/// Seznam sloupců tabulky s generováním příkazu CREATE TABLE.
+/// List of table columns with generation of the CREATE TABLE command.
 /// </summary>
 public class MSColumnsDB : List<MSSloupecDB>
 {
@@ -12,14 +12,14 @@ public class MSColumnsDB : List<MSSloupecDB>
     private bool signed;
 
     /// <summary>
-    /// Vytvoří seznam sloupců s názvem odvozené tabulky.
+    /// Creates a list of columns with the name of the derived table.
     /// </summary>
     public MSColumnsDB(string derived, bool signed, params MSSloupecDB[] columnDefinitions) : this(signed, derived, null, columnDefinitions)
     {
     }
 
     /// <summary>
-    /// Vytvoří seznam sloupců s plným nastavením.
+    /// Creates a list of columns with full settings.
     /// </summary>
     public MSColumnsDB(bool signed, string derived, string replaceMSinMSStoredProceduresI, params MSSloupecDB[] columnDefinitions)
     {
@@ -30,21 +30,21 @@ public class MSColumnsDB : List<MSSloupecDB>
     }
 
     /// <summary>
-    /// Vytvoří seznam sloupců s příznakem signed.
+    /// Creates a list of columns with the signed flag.
     /// </summary>
     public MSColumnsDB(bool signed, params MSSloupecDB[] columnDefinitions) : this(signed, null, null, columnDefinitions)
     {
     }
 
     /// <summary>
-    /// Vytvoří seznam sloupců.
+    /// Creates a list of columns.
     /// </summary>
     public MSColumnsDB(params MSSloupecDB[] columnDefinitions) : this(false, null, null, columnDefinitions)
     {
     }
 
     /// <summary>
-    /// Vrátí příkaz CREATE TABLE; připojení otevře z connection stringu.
+    /// Returns the CREATE TABLE command; opens the connection from the connection string.
     /// </summary>
     public SqlCommand GetSqlCreateTable(string table, bool dynamicTables, string connectionString)
     {
@@ -58,7 +58,7 @@ public class MSColumnsDB : List<MSSloupecDB>
     }
 
     /// <summary>
-    /// Vrátí příkaz CREATE TABLE pro statickou tabulku.
+    /// Returns the CREATE TABLE command for a static table.
     /// </summary>
     public SqlCommand GetSqlCreateTable(string nazevTabulky, string connectionString)
     {
@@ -66,7 +66,7 @@ public class MSColumnsDB : List<MSSloupecDB>
     }
 
     /// <summary>
-    /// Vrátí příkaz CREATE TABLE nad existujícím připojením.
+    /// Returns the CREATE TABLE command over an existing connection.
     /// </summary>
     public SqlCommand GetSqlCreateTable(string table, bool dynamicTables, SqlConnection conn)
     {

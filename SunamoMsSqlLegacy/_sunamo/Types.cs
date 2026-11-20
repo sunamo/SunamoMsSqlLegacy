@@ -1,7 +1,7 @@
 namespace SunamoMsSqlLegacy._sunamo;
 
 /// <summary>
-/// Často používané typy pro porovnání typu hodnoty parametru.
+/// Commonly used types for comparing the type of a parameter value.
 /// </summary>
 internal class Types
 {

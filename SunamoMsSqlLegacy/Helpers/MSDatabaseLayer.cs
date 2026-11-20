@@ -1,7 +1,7 @@
 namespace SunamoMsSqlLegacy.Helpers;
 
 /// <summary>
-/// Statické připojení a pomocné metody pro MS SQL Server.
+/// Static connection and helper methods for MS SQL Server.
 /// </summary>
 public class MSDatabaseLayer : IDatabaseLayer<SqlDbType2>
 {
@@ -10,7 +10,7 @@ public class MSDatabaseLayer : IDatabaseLayer<SqlDbType2>
     public static string cs = null;
 
     /// <summary>
-    /// Vrátí seznam parametrů (@p0, @p1...) podle počtu sloupců.
+    /// Returns a list of parameters (@p0, @p1...) according to the number of columns.
     /// </summary>
     public static string GetValues(params object[] sloupce)
     {
@@ -19,7 +19,7 @@ public class MSDatabaseLayer : IDatabaseLayer<SqlDbType2>
     }
 
     /// <summary>
-    /// Vrátí seznam parametrů (@p0, @p1...) pro daný počet.
+    /// Returns a list of parameters (@p0, @p1...) for the given count.
     /// </summary>
     public static string GetValuesDirect(int count)
     {
@@ -34,7 +34,7 @@ public class MSDatabaseLayer : IDatabaseLayer<SqlDbType2>
     }
 
     /// <summary>
-    /// Sestaví a uloží connection string z názvu serveru a databáze.
+    /// Builds and saves a connection string from the server and database name.
     /// </summary>
     public static bool LoadNewConnection(string dataSource, string database)
     {
@@ -50,7 +50,7 @@ public class MSDatabaseLayer : IDatabaseLayer<SqlDbType2>
     }
 
     /// <summary>
-    /// Uloží connection string.
+    /// Saves the connection string.
     /// </summary>
     public static bool LoadNewConnection(string connectionString)
     {
@@ -58,7 +58,7 @@ public class MSDatabaseLayer : IDatabaseLayer<SqlDbType2>
         return true;
     }
     /// <summary>
-    /// Nastaví továrnu sloupců pro MS SQL.
+    /// Sets the column factory for MS SQL.
     /// </summary>
     public static void SetFactoryColumnDb()
     {

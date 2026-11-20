@@ -1,14 +1,14 @@
 namespace SunamoMsSqlLegacy.Helpers;
 
 /// <summary>
-/// Singleton přístup k MSStoredProceduresIBase.
+/// Singleton access to MSStoredProceduresIBase.
 /// </summary>
 public class MSStoredProceduresI
 {
     private static MSStoredProceduresIBase _ci = new MSStoredProceduresIBase();
 
     /// <summary>
-    /// Sdílená instance.
+    /// Shared instance.
     /// </summary>
     public static MSStoredProceduresIBase ci
     {

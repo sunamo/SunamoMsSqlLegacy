@@ -1,7 +1,7 @@
 namespace SunamoMsSqlLegacy;
 
 /// <summary>
-/// Určení znaménkovosti sloupce.
+/// Specifies the signedness of the column.
 /// </summary>
 public enum Signed
 {
