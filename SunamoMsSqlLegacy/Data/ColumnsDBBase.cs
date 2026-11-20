@@ -13,12 +13,27 @@ public class ColumnsDBBase<MSColumnDB, SqlDbType2>
         MSDatabaseLayer.SetFactoryColumnDb();
     }
 
+    /// <summary>
+    /// The factory column DB.
+    /// </summary>
     public static IFactoryColumnDB<MSColumnDB, SqlDbType2> factoryColumnDB = null;
+    /// <summary>
+    /// The type.
+    /// </summary>
     public SqlDbType2 type = default(SqlDbType2);
+    /// <summary>
+    /// The is unicode.
+    /// </summary>
     public bool IsUnicode = false;
     private string _name = "";
+    /// <summary>
+    /// The database layer.
+    /// </summary>
     public static IDatabaseLayer<SqlDbType2> databaseLayer = null;
     private string length = "";
+    /// <summary>
+    /// The primary key.
+    /// </summary>
     public bool primaryKey = false;
 
     /// <summary>

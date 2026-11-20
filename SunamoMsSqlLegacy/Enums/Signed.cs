@@ -5,5 +5,8 @@ namespace SunamoMsSqlLegacy;
 /// </summary>
 public enum Signed
 {
+    /// <summary>
+    /// The other value.
+    /// </summary>
     Other
 }

@@ -5,6 +5,9 @@ namespace SunamoMsSqlLegacy.Helpers;
 /// </summary>
 public class MSStoredProceduresIBase
 {
+    /// <summary>
+    /// The cs.
+    /// </summary>
     public string _cs = null;
 
     /// <summary>

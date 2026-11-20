@@ -7,6 +7,9 @@ public class MSColumnsDB : List<MSColumnDB>
 {
     private static string _tableNameField = "_tableName";
     private string derived;
+    /// <summary>
+    /// The dict.
+    /// </summary>
     public Dictionary<string, MSColumnDB> dict = new Dictionary<string, MSColumnDB>();
     private string replaceMSinMSStoredProceduresI;
     private bool signed;

@@ -5,6 +5,9 @@ namespace SunamoMsSqlLegacy.Helpers;
 /// </summary>
 public class MSFactoryColumnDB : IFactoryColumnDB<MSColumnDB, SqlDbType2>
 {
+    /// <summary>
+    /// The instance.
+    /// </summary>
     public static IFactoryColumnDB<MSColumnDB, SqlDbType2> Instance = new MSFactoryColumnDB();
 
     /// <summary>

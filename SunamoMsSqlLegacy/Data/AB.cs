@@ -5,7 +5,13 @@ namespace SunamoMsSqlLegacy.Data;
 /// </summary>
 public class AB
 {
+    /// <summary>
+    /// The a.
+    /// </summary>
     public string A = null;
+    /// <summary>
+    /// The b.
+    /// </summary>
     public object B = null;
 
     /// <summary>

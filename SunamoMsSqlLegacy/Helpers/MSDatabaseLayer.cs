@@ -5,8 +5,17 @@ namespace SunamoMsSqlLegacy.Helpers;
 /// </summary>
 public class MSDatabaseLayer : IDatabaseLayer<SqlDbType2>
 {
+    /// <summary>
+    /// The ci.
+    /// </summary>
     public static MSDatabaseLayer ci = new MSDatabaseLayer();
+    /// <summary>
+    /// The conn.
+    /// </summary>
     public static SqlConnection conn = null;
+    /// <summary>
+    /// The cs.
+    /// </summary>
     public static string cs = null;
 
     /// <summary>
