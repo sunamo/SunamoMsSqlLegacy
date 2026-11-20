@@ -206,9 +206,9 @@ public class MSStoredProceduresIBase
     /// <summary>
     /// Returns the selected columns with conditions.
     /// </summary>
-    public DataTable SelectDataTableSelective(string tabulka, string nazvySloupcu, params AB[] conditions)
+    public DataTable SelectDataTableSelective(string table, string columnNames, params AB[] conditions)
     {
-        SqlCommand comm = new SqlCommand(string.Format("SELECT {0} FROM {1}", nazvySloupcu, tabulka) + GeneratorMsSql.CombinedWhere(new ABC( conditions)));
+        SqlCommand comm = new SqlCommand(string.Format("SELECT {0} FROM {1}", columnNames, table) + GeneratorMsSql.CombinedWhere(new ABC( conditions)));
         AddCommandParameterFromAbc(comm, conditions);
         return SelectDataTable(comm);
     }

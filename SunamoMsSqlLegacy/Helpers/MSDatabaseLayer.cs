@@ -12,9 +12,9 @@ public class MSDatabaseLayer : IDatabaseLayer<SqlDbType2>
     /// <summary>
     /// Returns a list of parameters (@p0, @p1...) according to the number of columns.
     /// </summary>
-    public static string GetValues(params object[] sloupce)
+    public static string GetValues(params object[] columns)
     {
-        int columnCount = sloupce.Length;
+        int columnCount = columns.Length;
         return GetValuesDirect(columnCount);
     }
 
@@ -62,6 +62,6 @@ public class MSDatabaseLayer : IDatabaseLayer<SqlDbType2>
     /// </summary>
     public static void SetFactoryColumnDb()
     {
-        ColumnsDBBase<MSSloupecDB, SqlDbType2>.factoryColumnDB = MSFactoryColumnDB.Instance;
+        ColumnsDBBase<MSColumnDB, SqlDbType2>.factoryColumnDB = MSFactoryColumnDB.Instance;
     }
 }

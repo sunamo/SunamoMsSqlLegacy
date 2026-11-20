@@ -3,10 +3,10 @@ namespace SunamoMsSqlLegacy.Interfaces;
 /// <summary>
 /// Factory for column definitions.
 /// </summary>
-public interface IFactoryColumnDB<MSSloupecDB, SqlDbType2>
+public interface IFactoryColumnDB<MSColumnDB, SqlDbType2>
 {
     /// <summary>
     /// Creates a column definition.
     /// </summary>
-    MSSloupecDB CreateInstance(SqlDbType2 typ, string nazev, Signed signed, bool canBeNull, bool mustBeUnique, string referencesTable, string referencesColumn, bool primaryKey);
+    MSColumnDB CreateInstance(SqlDbType2 type, string name, Signed signed, bool canBeNull, bool mustBeUnique, string referencesTable, string referencesColumn, bool primaryKey);
 }

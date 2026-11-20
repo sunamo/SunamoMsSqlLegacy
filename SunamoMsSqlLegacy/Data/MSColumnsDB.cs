@@ -3,25 +3,25 @@ namespace SunamoMsSqlLegacy.Data;
 /// <summary>
 /// List of table columns with generation of the CREATE TABLE command.
 /// </summary>
-public class MSColumnsDB : List<MSSloupecDB>
+public class MSColumnsDB : List<MSColumnDB>
 {
     private static string _tableNameField = "_tableName";
     private string derived;
-    public Dictionary<string, MSSloupecDB> dict = new Dictionary<string, MSSloupecDB>();
+    public Dictionary<string, MSColumnDB> dict = new Dictionary<string, MSColumnDB>();
     private string replaceMSinMSStoredProceduresI;
     private bool signed;
 
     /// <summary>
     /// Creates a list of columns with the name of the derived table.
     /// </summary>
-    public MSColumnsDB(string derived, bool signed, params MSSloupecDB[] columnDefinitions) : this(signed, derived, null, columnDefinitions)
+    public MSColumnsDB(string derived, bool signed, params MSColumnDB[] columnDefinitions) : this(signed, derived, null, columnDefinitions)
     {
     }
 
     /// <summary>
     /// Creates a list of columns with full settings.
     /// </summary>
-    public MSColumnsDB(bool signed, string derived, string replaceMSinMSStoredProceduresI, params MSSloupecDB[] columnDefinitions)
+    public MSColumnsDB(bool signed, string derived, string replaceMSinMSStoredProceduresI, params MSColumnDB[] columnDefinitions)
     {
         this.signed = signed;
         this.derived = derived;
@@ -32,14 +32,14 @@ public class MSColumnsDB : List<MSSloupecDB>
     /// <summary>
     /// Creates a list of columns with the signed flag.
     /// </summary>
-    public MSColumnsDB(bool signed, params MSSloupecDB[] columnDefinitions) : this(signed, null, null, columnDefinitions)
+    public MSColumnsDB(bool signed, params MSColumnDB[] columnDefinitions) : this(signed, null, null, columnDefinitions)
     {
     }
 
     /// <summary>
     /// Creates a list of columns.
     /// </summary>
-    public MSColumnsDB(params MSSloupecDB[] columnDefinitions) : this(false, null, null, columnDefinitions)
+    public MSColumnsDB(params MSColumnDB[] columnDefinitions) : this(false, null, null, columnDefinitions)
     {
     }
 
@@ -60,9 +60,9 @@ public class MSColumnsDB : List<MSSloupecDB>
     /// <summary>
     /// Returns the CREATE TABLE command for a static table.
     /// </summary>
-    public SqlCommand GetSqlCreateTable(string nazevTabulky, string connectionString)
+    public SqlCommand GetSqlCreateTable(string tableName, string connectionString)
     {
-        return GetSqlCreateTable(nazevTabulky, false, connectionString);
+        return GetSqlCreateTable(tableName, false, connectionString);
     }
 
     /// <summary>

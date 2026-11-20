@@ -8,7 +8,7 @@ public class GeneratorMsSql
     /// <summary>
     /// Returns the definition of one column for CREATE TABLE.
     /// </summary>
-    private static string Column(MSSloupecDB var, string inTable, bool dynamicTables)
+    private static string Column(MSColumnDB var, string inTable, bool dynamicTables)
     {
         InstantSB builder = new InstantSB(AllStrings.space);
         builder.AddItem(var.Name);
@@ -67,7 +67,7 @@ public class GeneratorMsSql
         if (!exists)
         {
             stringBuilder.AppendFormat("CREATE TABLE {0}(", table);
-            foreach (MSSloupecDB var in columns)
+            foreach (MSColumnDB var in columns)
             {
                 stringBuilder.Append(GeneratorMsSql.Column(var, table, dynamicTables) + AllStrings.comma);
             }

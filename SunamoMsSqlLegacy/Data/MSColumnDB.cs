@@ -1,14 +1,14 @@
 namespace SunamoMsSqlLegacy.Data;
 
 /// <summary>
-/// Definice sloupce tabulky v MS SQL Serveru.
+/// Definition of a table column in MS SQL Server.
 /// </summary>
-public class MSSloupecDB : ColumnsDBBase<MSSloupecDB, SqlDbType2>
+public class MSColumnDB : ColumnsDBBase<MSColumnDB, SqlDbType2>
 {
     /// <summary>
     /// Creates a column and sets up the database layer.
     /// </summary>
-    public MSSloupecDB() : base()
+    public MSColumnDB() : base()
     {
         databaseLayer = MSDatabaseLayer.ci;
     }
@@ -16,8 +16,8 @@ public class MSSloupecDB : ColumnsDBBase<MSSloupecDB, SqlDbType2>
     /// <summary>
     /// Sets the default database layer.
     /// </summary>
-    static MSSloupecDB()
+    static MSColumnDB()
     {
-        ColumnsDBBase<MSSloupecDB, SqlDbType2>.databaseLayer = MSDatabaseLayer.ci;
+        ColumnsDBBase<MSColumnDB, SqlDbType2>.databaseLayer = MSDatabaseLayer.ci;
     }
 }

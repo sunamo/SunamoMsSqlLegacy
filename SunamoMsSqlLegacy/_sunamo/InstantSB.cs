@@ -5,15 +5,15 @@ internal class InstantSB
     private StringBuilder _sb = new StringBuilder();
     private string _tokensDelimiter;
 
-    internal InstantSB(string znak)
+    internal InstantSB(string character)
     {
-        _tokensDelimiter = znak;
+        _tokensDelimiter = character;
     }
 
     public override string ToString()
     {
-        string vratit = _sb.ToString();
-        return vratit;
+        string result = _sb.ToString();
+        return result;
     }
 
     internal void AddItem(object var)
@@ -30,9 +30,9 @@ internal class InstantSB
         _sb.Append(tab.ToString());
     }
 
-    internal void AddItems(params object[] polozky)
+    internal void AddItems(params object[] items)
     {
-        foreach (object var in polozky)
+        foreach (object var in items)
         {
             AddItem(var);
         }
