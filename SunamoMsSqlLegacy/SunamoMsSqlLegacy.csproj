@@ -6,7 +6,6 @@
     <Nullable>enable</Nullable>
     <Version>26.10.7.3</Version>
     <Description>Legacy layer over Microsoft SQL Server: column definitions, SQL generator and stored procedure helpers</Description>
-    <PackageReleaseNotes>Initial release of SunamoMsSqlLegacy</PackageReleaseNotes>
     <Authors>www.sunamo.cz</Authors>
     <Copyright>www.sunamo.cz</Copyright>
     <PackageProjectUrl>https://sunamo.github.io/PlatformIndependentNuGetPackages/SunamoMsSqlLegacy/</PackageProjectUrl>
@@ -21,7 +20,6 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <EmbedAllSources>true</EmbedAllSources>
-    <Optimize>false</Optimize>
   </PropertyGroup>
   <PropertyGroup>
     <DebugType>portable</DebugType>
