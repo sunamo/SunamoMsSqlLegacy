@@ -61,7 +61,6 @@ public class ABC : List<AB>
 
         for (int index = 0; index < this.Count; index++)
         {
-            //o[i] = this[i].A;
             names.Add(this[index].A);
         }
         return names;
